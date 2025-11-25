@@ -1,0 +1,148 @@
+/*
+ * Copyright (c) 2024 Nordic Semiconductor
+ * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+ */
+
+#include "kestrel_nrf9151_common-pinctrl.dtsi"
+#include "kestrel_common.dtsi"
+
+/ {
+	model = "Kalscott Kestrel nRF9151";
+	compatible = "Kalscott,kestrel-nrf9151";
+
+	 i2c_bb0: i2c {
+        compatible = "gpio-i2c";
+        status = "okay";
+        scl-gpios = <&gpio0 9 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+        sda-gpios = <&gpio0 8 (GPIO_OPEN_DRAIN | GPIO_PULL_UP)>;
+        clock-frequency = <I2C_BITRATE_STANDARD>;
+        label = "I2C_BB0";
+
+        #address-cells = <1>;
+        #size-cells = <0>;
+    };
+
+	chosen {
+		zephyr,console = &uart0;
+		zephyr,shell-uart = &uart0;
+		zephyr,uart-mcumgr = &uart1;
+		nordic,pm-ext-flash = &flash_ext;
+	};
+
+	buttons {
+		compatible = "gpio-keys";
+		button0: button_0 {
+			gpios = <&gpio0 28 (GPIO_ACTIVE_HIGH)>;
+		};
+	};
+
+	aliases {
+		sw0 = &button0;                
+		mcuboot-button0 = &button0;     
+		spi-flash0 = &flash_ext;
+		i2c-bb = &i2c_bb0;
+	};
+};
+
+&adc {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+
+
+&gpio0 {
+	status = "okay";
+	/* Use PORT event rather than GPIOTE IN event, to save power */
+	sense-edge-mask = <0xffffffff>;
+	/* Load switch controlling 3.3V supply and I/O voltage for external boards */
+	/* Disabled for standalone nRF9151 - re-enable if you have expansion connectors that need power switching
+	exp_board_enable: exp_board_enable {
+		gpio-hog;
+		output-low;
+		gpios = <3 GPIO_ACTIVE_HIGH>;
+	};
+	*/
+};
+
+/* PWM0 disabled - RGB LEDs not present on standalone design */
+&pwm0 {
+	status = "disabled";
+};
+
+&pmic_main {
+	
+};
+
+
+&flash_ext {
+	status = "okay";
+};
+
+
+&i2c1 {
+	status = "disabled";
+};
+
+&i2c2 {
+	status = "okay";
+	
+};
+&spi3 {
+	status = "okay";
+	cs-gpios = 
+		<&gpio0 10 GPIO_ACTIVE_LOW>, 
+		<&gpio0 14 GPIO_ACTIVE_LOW>,  
+		<&gpio0 7 GPIO_ACTIVE_LOW>;
+
+};
+
+&pmic_main {
+	status = "okay";
+	
+	host-int-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>; 
+	npm1300_gpios {
+		status = "okay";
+	};
+	regulators {
+		status = "okay";
+	};
+	charger {
+		status = "okay";
+	};
+};
+
+&timer0 {
+	status = "okay";
+};
+
+&timer1 {
+	status = "okay";
+};
+
+&timer2 {
+	status = "okay";
+};
+
+&uart1 {
+	compatible = "nordic,nrf-uarte";
+	current-speed = <115200>;
+	status = "okay";
+	pinctrl-0 = <&uart1_default>;
+	pinctrl-1 = <&uart1_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+&uart0 {
+	compatible = "nordic,nrf-uarte";
+	current-speed = <115200>;
+	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-1 = <&uart0_sleep>;
+	pinctrl-names = "default", "sleep";
+};
+
+#include <common/nordic/nrf91xx_partition.dtsi>
