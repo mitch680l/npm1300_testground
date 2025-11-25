@@ -1,0 +1,5 @@
+west:
+  command: C:\ncs\toolchains\0b393f9e1b\opt\bin\Scripts\west build --build-dir c:/npm1300_testground/npm1300_test/build
+    c:/npm1300_testground/npm1300_test --pristine --board kestrel/nrf9151/ns -- -DBOARD_ROOT=c:/npm1300_testground/npm1300_test
+  topdir: c:\ncs\v3.0.2
+  version: 1.2.0
