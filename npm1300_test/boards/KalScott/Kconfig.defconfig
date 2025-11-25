@@ -1,0 +1,21 @@
+# Kestrel nRF9151 board configuration
+#
+# Copyright (c) 2024 Nordic Semiconductor
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+
+rsource "Kconfig.defconfig.nrf9151"
+
+
+if !IS_BOOTLOADER_IMG
+
+# For on-board regulators
+config REGULATOR
+	default y
+
+
+
+# GPIO hogs must be initialized after nPM1300 (GPIO_NPM1300_INIT_PRIORITY)
+config GPIO_HOGS_INIT_PRIORITY
+	default 86
+
+endif # !IS_BOOTLOADER_IMG

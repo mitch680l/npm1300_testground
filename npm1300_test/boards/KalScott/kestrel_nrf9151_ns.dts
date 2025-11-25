@@ -1,0 +1,37 @@
+/*
+ * Copyright (c) 2024 Nordic Semiconductor
+ * SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+ */
+
+/dts-v1/;
+#include <nordic/nrf9151ns_laca.dtsi>
+#include "kestrel_nrf9151_common.dts"
+
+/ {
+	chosen {
+		zephyr,flash = &flash0;
+		zephyr,sram = &sram0_ns_app;
+		zephyr,code-partition = &slot0_ns_partition;
+
+	};
+};
+
+/* UART1 completely removed for GNSS I2C implementation */
+
+&power {
+	status = "okay";
+};
+
+&ipc {
+	status = "okay";
+};
+
+&gpiote {
+	status = "okay";
+};
+
+
+
+&systick {
+	status = "disabled";
+};
