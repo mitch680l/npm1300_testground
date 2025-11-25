@@ -23,6 +23,10 @@ LOG_MODULE_REGISTER(npm1300_ctrl, LOG_LEVEL_INF);
 #define TEMP_MONITOR_ENABLE     0x00
 
 #define BCHGISE_BASE 0x03
+#define BCHG_ENABLE    0x04
+#define BCHG_ENABLE_CLEAR 0x05
+
+
 #define BCHGISETDISCHARGE_MSB  0x0A
 #define BCHGISETDISCHARGE_MSB_FULL 0x030A
 #define BCHGISETDISCHARGE_LSB   0x0B
@@ -343,6 +347,24 @@ static int npm1300_change_bat_current(void)
         LOG_ERR("Failed to write BCHGISETCHARGE_LSB: %d", ret);
         return ret;
     }
+
+    config[1] = BCHG_ENABLE;
+    config[0] = 0x01;
+    ret = i2c_write(i2c_dev, config, 2, NPM1300_I2C_ADDR);
+    if (ret < 0) {
+        LOG_ERR("Failed to enable BCHGISE: %d", ret);
+        return ret;
+    }
+
+    config[1] = BCHG_ENABLE_CLEAR;
+    config[0] = 0x01;
+
+    ret = i2c_write(i2c_dev, config, 2, NPM1300_I2C_ADDR);
+    if (ret < 0) {
+        LOG_ERR("Failed to clear BCHG_ENABLE_CLEAR: %d", ret);
+        return ret;
+    }
+    
     LOG_INF("NPM1300 battery current limits modified");
     return 0;
 
