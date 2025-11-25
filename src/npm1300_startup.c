@@ -52,8 +52,8 @@ LOG_MODULE_REGISTER(npm1300_ctrl, LOG_LEVEL_INF);
 #define TASK_DELAYED_VBAT_MEASURE  0x0508
 
 
-#define ADC_IBAT_STATUS_MSB  0x0510
-#define ADC_IBAT_STATUS_LSB  0x0511
+#define ADC_IBAT_STATUS_MSB  0x0518
+#define ADC_IBAT_STATUS_LSB  0x051A
 #define ADC_VBAT_MSB         0x0511
 #define ADC_NTC_MSB          0x0512
 #define ADC_TEMP_MSB         0x0513
@@ -62,10 +62,9 @@ LOG_MODULE_REGISTER(npm1300_ctrl, LOG_LEVEL_INF);
 #define ADC_VBUS_MSB         0x0519
 #define ADC_GP1_LSB          0x051A
 
-
 #define VFS_VBAT 5.0f
 #define VFS_VSYS 6.375f
-#define VFS_VBUS 7.0f
+#define VFS_VBUS 7.5f
 #define IFS_IBAT_HEAD_ROOM_DISCHARGE 1.12f
 #define IFS_IBAT_HEAD_ROOM_CHARGE 1.25f
 
@@ -214,9 +213,17 @@ static void npm1300_read_work(struct k_work *work)
 
     npm1300_write_task(TASK_IBAT_MEASURE);
     k_msleep(10);
-    uint16_t raw_ibat_u16 = 0;
-    npm1300_read16(ADC_IBAT_STATUS_MSB, ADC_IBAT_STATUS_LSB, &raw_ibat_u16);
-    int16_t raw_ibat = (int16_t)raw_ibat_u16;
+
+
+    uint8_t raw_ibat_msb = 0;
+    uint8_t raw_ibat_lsb = 0;
+    npm1300_read8(ADC_IBAT_STATUS_MSB, &raw_ibat_msb);
+    npm1300_read8(ADC_IBAT_STATUS_LSB, &raw_ibat_lsb);
+
+    raw_ibat_lsb = (raw_ibat_lsb >> 4) & 0x03;
+    uint16_t raw_ibat = ((uint16_t)raw_ibat_msb << 8) | (uint16_t)raw_ibat_lsb;
+
+
     
     raw_vbat = ((uint16_t)vbat_m << 2) | ((gp0_lsb >> 0) & 0x03);
     raw_ntc  = ((uint16_t)ntc_m  << 2) | ((gp0_lsb >> 2) & 0x03);
@@ -245,7 +252,7 @@ static void npm1300_read_work(struct k_work *work)
         ibat_fs = raw_battery_charge_total * IFS_IBAT_HEAD_ROOM_DISCHARGE;
     }
 
-    float ibat_a = ((float)raw_ibat / (float)3.2768e4) * ibat_fs;
+    float ibat_a = ((float)raw_ibat / (float)1024) * ibat_fs;
 
 
 
@@ -263,7 +270,7 @@ static void npm1300_read_work(struct k_work *work)
              vbat_v, vsys_v, vbus_v, ibat_a, temp_die_c, tbat_c);
 
     LOG_INF("%s", json_npm1300);
-    k_work_schedule(&npm1300_work, K_SECONDS(30));
+    k_work_schedule(&npm1300_work, K_SECONDS(5));
 }
 
 /* -------------------------------------------------------------------------- */
