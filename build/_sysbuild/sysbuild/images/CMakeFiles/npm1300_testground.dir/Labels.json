@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground-complete.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-build.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-configure.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-download.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-install.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-mkdir.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-patch.rule"
+		},
+		{
+			"file" : "C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"npm1300_testground"
+		],
+		"name" : "npm1300_testground"
+	}
+}

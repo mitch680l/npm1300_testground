@@ -1,0 +1,13 @@
+# Target labels
+ npm1300_testground
+# Source files and their labels
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/CMakeFiles/npm1300_testground-complete.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-build.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-configure.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-download.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-install.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-mkdir.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-patch.rule
+C:/kes_new_features/npm1300_testground/build/_sysbuild/sysbuild/images/npm1300_testground-prefix/src/npm1300_testground-stamp/npm1300_testground-update.rule

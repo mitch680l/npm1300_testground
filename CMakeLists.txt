@@ -5,3 +5,5 @@ project(npm1300_test)
 
 target_sources(app PRIVATE src/main.c)
 target_sources(app PRIVATE src/npm1300_startup.c)
+target_sources(app PRIVATE src/gnss.c)
+target_sources(app PRIVATE src/config.c)

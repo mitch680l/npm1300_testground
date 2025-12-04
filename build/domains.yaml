@@ -1,0 +1,7 @@
+default: npm1300_testground
+build_dir: C:/kes_new_features/npm1300_testground/build
+domains:
+  - name: npm1300_testground
+    build_dir: C:/kes_new_features/npm1300_testground/build/npm1300_testground
+flash_order:
+  - npm1300_testground

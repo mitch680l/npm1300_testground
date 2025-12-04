@@ -5,8 +5,8 @@
 #include <zephyr/logging/log.h>
 #include <math.h>
 #include <stdio.h>
+#include "config.h"
 
-char json_npm1300[500] = "NO NPM1300 DATA";
 LOG_MODULE_REGISTER(npm1300_ctrl, LOG_LEVEL_INF);
 
 /* -------------------------------------------------------------------------- */
@@ -244,17 +244,17 @@ static void npm1300_read_work(struct k_work *work)
         ibat_fs = raw_battery_charge_total * IFS_IBAT_HEAD_ROOM_DISCHARGE;
     }
 
-    float ibat_a = ((float)raw_ibat / (float)3.2768e4) * ibat_fs;
+    double ibat_a = ((float)raw_ibat / (float)3.2768e4) * ibat_fs;
 
 
 
 
 
-    float vbat_v = ((float)raw_vbat / 1024.0f) * VFS_VBAT;
-    float vsys_v = ((float)raw_vsys / 1024.0f) * VFS_VSYS;
-    float vbus_v = ((float)raw_vbus / 1024.0f) * VFS_VBUS;
-    float tbat_c = calc_tbat_c(raw_ntc);
-    float temp_die_c = 394.67f - (0.7926f * raw_temp);
+    double vbat_v = ((double)raw_vbat / 1024.0) * (double)VFS_VBAT;
+    double vsys_v = ((double)raw_vsys / 1024.0) * (double)VFS_VSYS;
+    double vbus_v = ((double)raw_vbus / 1024.0) * (double)VFS_VBUS;
+    double tbat_c = calc_tbat_c(raw_ntc);
+    double temp_die_c = 394.67f - (0.7926f * raw_temp);
 
     snprintf(json_npm1300, sizeof(json_npm1300),
              "{\"vbat_v\":%.3f,\"vsys_v\":%.3f,\"vbus_v\":%.3f,"

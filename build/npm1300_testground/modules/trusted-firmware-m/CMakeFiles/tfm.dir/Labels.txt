@@ -1,0 +1,13 @@
+# Target labels
+ tfm
+# Source files and their labels
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/CMakeFiles/tfm
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/CMakeFiles/tfm.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/CMakeFiles/tfm-complete.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-build.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-configure.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-download.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-install.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-mkdir.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-patch.rule
+C:/kes_new_features/npm1300_testground/build/npm1300_testground/modules/trusted-firmware-m/tfm-prefix/src/tfm-stamp/tfm-update.rule

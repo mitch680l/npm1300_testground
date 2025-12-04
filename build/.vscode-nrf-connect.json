@@ -1,0 +1,18 @@
+{
+  "toolchainPath": "c:\\ncs\\toolchains\\0b393f9e1b",
+  "sdkPath": "c:\\ncs\\v3.0.2",
+  "board": "kestrel/nrf9151/ns",
+  "boardDir": "c:\\kes_new_features\\npm1300_testground\\boards\\KalScott",
+  "boardDirs": [
+    "c:\\kes_new_features\\npm1300_testground\\boards\\KalScott"
+  ],
+  "optimizations": "none",
+  "cmakeArgs": [],
+  "confFiles": [],
+  "buildDirectory": "build",
+  "kconfigFragments": [],
+  "snippets": [],
+  "dtcOverlays": [],
+  "extraDtcOverlays": [],
+  "boardRoot": "c:\\kes_new_features\\npm1300_testground"
+}

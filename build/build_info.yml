@@ -1,5 +1,25 @@
+cmake:
+  application:
+    source-dir: C:/ncs/v3.0.2/zephyr/share/sysbuild
+  board:
+    name: kestrel
+    path:
+     - C:/kes_new_features/npm1300_testground/boards/KalScott
+    qualifiers: nrf9151/ns
+    revision: 
+  images:
+   - name: npm1300_testground
+     source-dir: C:/kes_new_features/npm1300_testground
+     type: MAIN
+  kconfig:
+    files:
+     - C:/kes_new_features/npm1300_testground/build/_sysbuild/empty.conf
+     - c:/kes_new_features/npm1300_testground/sysbuild.conf
+    user-files:
+     - c:/kes_new_features/npm1300_testground/sysbuild.conf
+  sysbuild: true
+version: 0.1.0
 west:
-  command: C:\ncs\toolchains\0b393f9e1b\opt\bin\Scripts\west build --build-dir c:/npm1300_testground/npm1300_test/build
-    c:/npm1300_testground/npm1300_test --pristine --board kestrel/nrf9151/ns -- -DBOARD_ROOT=c:/npm1300_testground/npm1300_test
+  command: C:\ncs\toolchains\0b393f9e1b\opt\bin\Scripts\west build --build-dir c:/kes_new_features/npm1300_testground/build c:/kes_new_features/npm1300_testground --pristine --board kestrel/nrf9151/ns -- -DBOARD_ROOT=c:/kes_new_features/npm1300_testground
   topdir: c:\ncs\v3.0.2
   version: 1.2.0
